@@ -1,0 +1,34 @@
+{
+  "licenseSummary": "Free commercial and noncommercial website use; attribution appreciated, not required. Cannot sell photos without significant modification or compile a competing service.",
+  "inspectedOn": "2026-09-22",
+  "assets": [
+    {
+      "file": "kyoto-yasaka-sunset.jpg",
+      "width": 1600,
+      "height": 2274,
+      "photographer": "Cosmin Serban",
+      "sourcePage": "https://unsplash.com/photos/black-pagoda-temple-during-daytime-jZyQV3I2rT4",
+      "imageUrl": "https://images.unsplash.com/photo-1580639463127-3434c2af2707?auto=format&fit=max&fm=jpg&q=85&w=1600",
+      "subject": "Hōkan-ji Temple (Yasaka Pagoda), Kyoto, at sunset",
+      "altKo": "분홍빛 노을 아래 교토 야사카 탑과 전통 가옥",
+      "license": "Unsplash License",
+      "licenseUrl": "https://unsplash.com/license",
+      "verified": true,
+      "cropGuidance": "Portrait editorial hero. object-position: 50% 65%; retain pagoda spire when enough height. Atmospheric coral/pink sky, deep shadowed wood and warm lanterns."
+    },
+    {
+      "file": "ceramic-cups.jpg",
+      "width": 1200,
+      "height": 1800,
+      "photographer": "tommao wang",
+      "sourcePage": "https://unsplash.com/photos/several-ceramic-cups-arranged-on-a-wooden-surface-I5-j8AflLGA",
+      "imageUrl": "https://images.unsplash.com/photo-1759753876668-a5e7a7e41a59?auto=format&fit=max&fm=jpg&q=85&w=1200",
+      "subject": "Artisanal ceramic cups on a wooden table; Japanese aesthetic, exact origin unverified",
+      "altKo": "따뜻한 나무 테이블 위에 놓인 수공예 도자기 잔",
+      "license": "Unsplash License",
+      "licenseUrl": "https://unsplash.com/license",
+      "verified": true,
+      "cropGuidance": "Cup subjects occupy lower 50%; object-position: 50% 72% for landscape/square card. Use as editorial illustrative image, do not claim specific provenance or product."
+    }
+  ]
+}

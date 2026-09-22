@@ -1,0 +1,46 @@
+/* One idea per screen; content may grow when text is enlarged. */
+:root{--presentation-header:72px}
+html{scroll-padding-top:var(--presentation-header);scroll-snap-type:y proximity}
+.header,.header.scrolled{height:var(--presentation-header)}
+.presentation-section,#experience{scroll-snap-align:start;scroll-margin-top:0}
+h1,h2,h3,p{word-break:keep-all;overflow-wrap:break-word}
+.hero{min-height:calc(100svh - var(--presentation-header));padding-block:36px;gap:50px;grid-template-columns:1.08fr 1fr}
+.hero h1{font-size:clamp(38px,3.7vw,61px);line-height:1.32;letter-spacing:-2.7px;white-space:normal;margin-bottom:24px}
+.hero .eyebrow{font-size:14px;letter-spacing:.7px;margin-bottom:24px}
+.hero-description{font-size:18px;line-height:1.85;margin-bottom:27px}
+.hero-actions .button{font-size:16px;padding:17px 21px}.hero-actions .text-link{font-size:14px}
+.hero-note{font-size:14px;line-height:1.6;margin-top:28px}
+.souvenir-visual{padding:28px 24px 22px;background:#edf1e9;border-radius:24px;position:relative}
+.souvenir-heading>span{font-size:12px;letter-spacing:2px;color:var(--teal)}
+.souvenir-heading>strong{display:block;font-size:18px;font-weight:550;letter-spacing:-.6px;margin-top:9px}
+.souvenir-collection{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:center;margin-top:25px}
+.souvenir-piece{margin:0;background:#fffdf8;border-radius:16px;padding:17px 14px 15px;box-shadow:0 9px 30px #234d3610;min-width:0}
+.souvenir-cup{grid-column:2;grid-row:1/3;background:#f9e9dd;transform:rotate(4deg)}
+.souvenir-tea{transform:rotate(-3deg)}.souvenir-note{transform:rotate(-2deg)}
+.souvenir-for{font-size:12px;color:#647369;display:block}
+.souvenir-piece img{width:100%;height:110px;object-fit:contain;mix-blend-mode:multiply;margin:5px 0}
+.souvenir-cup img{height:220px}
+.souvenir-piece figcaption{font-size:14px;font-weight:550;line-height:1.6;letter-spacing:-.5px}
+.souvenir-piece small{display:block;font-size:12px;color:#758075;font-weight:400;margin-top:3px}
+.souvenir-foot{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:23px;font-size:12px;line-height:1.7;color:#738176}
+.souvenir-foot img{object-fit:contain}.souvenir-foot strong{font-weight:550;color:var(--teal)}
+@media(min-width:1000px){
+ .container{width:min(1320px,calc(100% - 96px))}
+ .presentation-section{min-height:calc(100svh - var(--presentation-header));padding-block:40px}
+ .section-heading h2,.heading-row h2,.story-copy h2,.delivery h2{font-size:clamp(32px,2.9vw,46px);line-height:1.4}
+ .why{display:flex;flex-direction:column;justify-content:center}.why .eyebrow{margin-bottom:18px}.why .section-heading>p:last-child{margin-top:18px}.pain-grid{margin-top:45px}.pain-item{padding-top:0;padding-bottom:0}.pain-item p{font-size:16px}
+ .journey{display:flex;flex-direction:column;justify-content:center}.journey-line{margin-top:40px}.journey-grid{margin-top:20px}.journey-step p{min-height:95px;font-size:16px}.journey-step h3{font-size:21px}.feature-tag{font-size:14px}.heading-row>p{font-size:16px}
+ .ar-section{display:flex;flex-direction:column;justify-content:center}.ar-section-heading .eyebrow{font-size:14px;margin-bottom:20px;letter-spacing:1px}.ar-showcase{margin-top:0;gap:30px}.ar-scene-copy{padding-bottom:18px}.ar-scene-copy h3{font-size:23px;line-height:1.4;margin:9px 0}.ar-scene-copy p{font-size:16px;line-height:1.7}.ar-screen{padding:8px 8px 0;border-radius:19px;width:fit-content;max-width:100%;align-self:center}.ar-screen img{height:clamp(260px,35svh,400px);width:auto;max-width:100%;object-fit:contain}.ar-screen figcaption{padding:10px 0;font-size:14px}.ar-context{margin-top:18px;padding-top:14px}.ar-context p{font-size:14px;margin-bottom:5px}.ar-context small{font-size:12px}
+ .story-section{display:flex;align-items:center}.story-grid{gap:65px}.story-copy .eyebrow{font-size:14px;letter-spacing:1px;margin-bottom:18px}.story-copy .section-description{margin-top:20px;font-size:18px}.story-detail{margin-top:18px;font-size:16px}.story-options{margin-top:20px}.story-options>span{font-size:14px}.story-link{font-size:16px;margin-top:20px}.story-photo-wrap img{max-height:470px;object-fit:cover}
+ .delivery{gap:75px}.delivery .eyebrow{font-size:14px;letter-spacing:1px}.delivery .section-description{font-size:18px;line-height:1.8}.delivery-point p{font-size:16px}.delivery-note{font-size:14px}
+ .faq-section{align-content:center;padding-block:40px;margin-top:0}.faq-list summary{font-size:18px}.faq-list details>p{font-size:16px}.closing{margin-bottom:0;border-radius:0;background:var(--pale);padding:48px 60px}.closing h2{font-size:40px}.closing .eyebrow{font-size:14px}.closing .button{font-size:16px}
+}
+@media(min-width:1000px) and (max-height:800px){
+ .presentation-section{padding-block:26px}.hero{gap:40px}.hero h1{font-size:45px}.hero-description{font-size:17px}.souvenir-visual{padding:22px}.souvenir-collection{margin-top:18px;gap:12px}.souvenir-piece{padding:12px}.souvenir-piece img{height:88px}.souvenir-cup img{height:184px}.souvenir-foot{margin-top:17px}.hero .eyebrow{margin-bottom:18px}.hero-note{margin-top:20px}
+ .ar-section-heading .eyebrow{margin-bottom:12px}.ar-screen img{height:260px}.ar-scene-copy h3{font-size:21px}.ar-scene-copy p{font-size:16px}.ar-context{margin-top:12px}.ar-showcase{gap:25px}
+ .story-copy h2{font-size:34px}.story-copy .section-description{font-size:16px}.story-detail{font-size:16px;margin-top:14px}.story-options{margin-top:17px}.story-link{margin-top:14px}.story-copy .eyebrow{font-size:12px}.story-photo-wrap img{max-height:360px}
+}
+@media(max-width:999px){html{scroll-snap-type:none}.presentation-section{min-height:0}.hero{min-height:0;grid-template-columns:1fr 1fr;gap:30px;padding-block:42px}.hero h1{font-size:38px}.hero .eyebrow{font-size:12px}.hero-description{font-size:16px}.hero-note{font-size:13px}.souvenir-visual{padding:18px}.souvenir-heading>strong{font-size:16px}.souvenir-piece img{height:85px}.souvenir-cup img{height:175px}.souvenir-piece figcaption{font-size:12px}.souvenir-for{font-size:12px}.souvenir-collection{gap:10px}.souvenir-piece{padding:10px}.ar-section-heading .eyebrow{line-height:1.7}.ar-showcase{margin-top:0}.journey{padding-bottom:45px}}
+@media(max-width:760px){.hero{grid-template-columns:1fr;padding-top:34px;gap:30px}.hero h1{font-size:clamp(31px,8.3vw,44px);letter-spacing:-1.8px}.hero-description{font-size:16px}.hero .eyebrow{line-height:1.8;font-size:12px;letter-spacing:0}.hero-actions{gap:15px}.hero-actions .button{font-size:14px}.souvenir-visual{margin:0;padding:23px 20px}.souvenir-piece img{height:105px}.souvenir-cup img{height:190px}.souvenir-piece figcaption{font-size:13px}.hero-note{margin-top:20px}.ar-section{padding-top:25px}.ar-section-heading .eyebrow{font-size:13px;letter-spacing:0}.ar-showcase{margin-top:0}.ar-context p{font-size:14px}.closing{min-height:0}}
+@media(prefers-reduced-motion:reduce){html{scroll-snap-type:none}}
+@media(min-width:1101px){#experience{min-height:calc(100svh - var(--presentation-header));display:flex;align-items:center}}

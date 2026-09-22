@@ -26,7 +26,7 @@ const journeyLine=document.querySelector('.journey-line');
 let scrollQueued=false;
 function updateScroll(){
   header.classList.toggle('scrolled',window.scrollY>30);
-  if(!reducedMotion.matches && window.scrollY<950)heroPhoto.style.transform=`translateY(${Math.min(window.scrollY*.075,42)}px)`;
+  if(heroPhoto && !reducedMotion.matches && window.scrollY<950)heroPhoto.style.transform=`translateY(${Math.min(window.scrollY*.075,42)}px)`;
   if(journeyLine){const rect=journeyLine.getBoundingClientRect();journeyLine.style.setProperty('--progress',`${Math.min(100,Math.max(0,(window.innerHeight-rect.top)/(window.innerHeight*.58)*100))}%`);}
   scrollQueued=false;
 }

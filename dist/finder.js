@@ -8,6 +8,18 @@
   const selectedText=id=>$(id).selectedOptions[0].textContent;
   function node(tag,cls,text){const n=document.createElement(tag);if(cls)n.className=cls;if(text)n.textContent=text;return n;}
   function conditions(){return {mode,pick,taste:$('#taste').value,recipient:$('#recipient').value,budget:$('#budget').value};}
+  function openProduct(p,c){
+    const body=$('#finder-dialog-content');body.replaceChildren();
+    const media=node('div','finder-dialog-product-media'),img=node('img');img.src=p.image;img.alt=p.originalName+' 제품 사진';img.width=320;img.height=210;media.append(img);
+    const title=node('h3','',p.name);title.id='finder-dialog-title';
+    let reason=p.description;
+    if(mode==='personal'&&p.recipients.includes(c.recipient))reason=(c.recipient==='me'?'나를 위한':`${labels[c.recipient]}에게 건네기 좋은`)+' 픽. '+reason;
+    const price=node('div','product-price');price.append(node('strong','',`약 ${money(p.price)}`),node('span','',`US $${p.usd.toFixed(2)}`));
+    body.append(media,node('small','product-category',categories[p.category]),title,node('p','product-reason',reason),price,node('p','',`${p.brand} · ${p.originalName}${p.variant!=='Default Title'?' · '+p.variant:''}`));
+    if(!p.availableAtCapture)body.append(node('p','','확인 시 선택 옵션 품절 · 현재 재고는 판매처에서 확인하세요.'));
+    const link=node('a','','판매처에서 상품 보기 →');link.href=p.url;link.target='_blank';link.rel='noopener noreferrer';body.append(link);
+    $('#finder-product-dialog').showModal();
+  }
   function paint(){
     const list=$('#product-results');list.replaceChildren();
     const visible=results.slice(page*3,page*3+3), c=conditions();
@@ -19,14 +31,8 @@
       const card=node('article','product-card');
       const media=node('div','product-media'),img=node('img');img.src=p.image;img.alt=p.originalName+' 제품 사진';img.width=128;img.height=144;img.loading='lazy';img.addEventListener('error',()=>{img.hidden=true;media.append(node('span','image-unavailable','사진 준비 중'));},{once:true});media.append(img);
       const content=node('div','product-info');content.append(node('small','product-category',categories[p.category]),node('h4','',p.name));
-      let reason=p.description;
-      if(mode==='personal'&&p.recipients.includes(c.recipient))reason=(c.recipient==='me'?'나를 위한':`${labels[c.recipient]}에게 건네기 좋은`)+' 픽. '+reason;
-      content.append(node('p','product-reason',reason));
-      const price=node('div','product-price');price.append(node('strong','',`약 ${money(p.price)}`),node('span','',`US $${p.usd.toFixed(2)}`));content.append(price);
-      const details=node('details','product-details');details.append(node('summary','','상품 정보 · 출처'));
-      details.append(node('p','',`${p.brand} · ${p.originalName}${p.variant!=='Default Title'?' · '+p.variant:''}`));
-      if(!p.availableAtCapture)details.append(node('p','','확인 시 선택 옵션 품절 · 현재 재고는 판매처에서 확인하세요.'));
-      const link=node('a','','판매처에서 상품 보기 →');link.href=p.url;link.target='_blank';link.rel='noopener noreferrer';details.append(link);content.append(details);
+      const price=node('div','product-price');price.append(node('strong','',`약 ${money(p.price)}`));content.append(price);
+      const details=node('button','product-details-button','추천 이유 · 상품 정보');details.type='button';details.setAttribute('aria-haspopup','dialog');details.setAttribute('aria-label',`${p.name} 추천 이유 및 상품 정보 보기`);details.addEventListener('click',()=>openProduct(p,c));content.append(details);
       card.append(media,content);list.append(card);
     });
     $('#more-products').hidden=results.length<=3;
@@ -41,6 +47,9 @@
   ['#recipient','#taste','#budget'].forEach(id=>$(id).addEventListener('change',refresh));
   $('#recommend-button').addEventListener('click',refresh);
   $('#more-products').addEventListener('click',()=>{page=page*3+3<results.length?page+1:0;paint();});
+  $('#pricing-info-button').addEventListener('click',()=>$('#finder-pricing-dialog').showModal());
+  document.querySelectorAll('[data-close-dialog]').forEach(button=>button.addEventListener('click',()=>button.closest('dialog').close()));
+  document.querySelectorAll('.finder-dialog').forEach(dialog=>dialog.addEventListener('click',event=>{if(event.target!==dialog)return;const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close();}));
   if(navigator.modelContext?.registerTool){
     navigator.modelContext.registerTool({name:'preview_tripick_recommendation',description:'Compare real catalog products in the Tripick preview. Prices are reference conversions, not live prices or inventory.',inputSchema:{type:'object',properties:{mode:{type:'string',enum:['quick','personal']},category:{type:'string',enum:['share','light','local','all','craft','tea','design']}},required:['mode']},execute:async({mode:next,category})=>{
       if(!['quick','personal'].includes(next))throw new Error('Invalid mode');

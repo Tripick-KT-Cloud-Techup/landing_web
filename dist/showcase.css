@@ -1,0 +1,31 @@
+/* Photo-led product moments, in the existing Tripick palette. */
+.brand-icon,.footer-top .brand-icon{width:35px;height:42px;overflow:visible;mix-blend-mode:normal}
+.brand-icon img,.footer-top .brand-icon img{position:static;width:100%;height:100%;max-width:100%;object-fit:contain;transform:scale(1.35)}
+.closing-mark{mix-blend-mode:normal}
+.closing-mark img{position:static;width:100%;height:100%;max-width:100%;object-fit:contain;transform:scale(1.3)}
+.ar-showcase{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin-top:80px}
+.ar-scene{min-width:0;display:flex;flex-direction:column}
+.ar-scene-copy{padding:0 4px 28px}
+.ar-scene-copy .mini-label{font-size:12px;letter-spacing:1.6px;color:var(--teal)}
+.ar-scene-copy h3{font-size:24px;line-height:1.55;letter-spacing:-1.1px;font-weight:600;margin:16px 0 14px;word-break:keep-all}
+.ar-scene-copy p{font-size:16px;line-height:1.85;color:var(--muted);margin:0;word-break:keep-all}
+.ar-screen{margin:auto 0 0;padding:14px 14px 0;background:#e8eeea;border:1px solid #dce5dc;border-radius:26px;overflow:hidden;box-shadow:0 15px 35px #214b3510;transition:transform .6s var(--ease),box-shadow .6s var(--ease)}
+.ar-scene-size .ar-screen{background:#eee9df;border-color:#e5ddd0}
+.ar-screen img{display:block;width:100%;height:auto;border-radius:15px;aspect-ratio:2/3;object-fit:contain}
+.ar-screen figcaption{display:flex;align-items:center;justify-content:center;gap:9px;padding:19px 0;font-size:14px;color:var(--teal);font-weight:500}
+.ar-screen figcaption>span{width:18px;height:18px;display:inline-flex}
+.ar-screen svg,.ar-context svg{width:100%;height:100%}
+.ar-context{margin-top:30px;padding-top:24px;border-top:1px solid var(--line)}
+.ar-context p{display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.8;color:var(--teal);margin:0 0 12px}
+.ar-context p>span{display:inline-flex;width:18px;height:18px;flex-shrink:0;margin-top:3px}
+.ar-context small{display:block;font-size:12px;color:var(--muted);line-height:1.8}
+.story-grid{grid-template-columns:1.2fr 1fr;gap:65px}
+.story-photograph{margin:0;padding:0;min-width:0}
+.story-photo-wrap{overflow:hidden;border-radius:15px;box-shadow:0 22px 60px #06282640;transform:rotate(-2deg);transition:transform .8s var(--ease)}
+.story-photo-wrap img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:contain}
+.story-photograph .story-art-note{margin:26px 0 0;text-align:center;line-height:1.8}
+.photo-credits{max-width:420px}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){.ar-scene:hover .ar-screen{transform:translateY(-7px);box-shadow:0 24px 40px #214b3518}.story-photo-wrap:hover{transform:rotate(0)}}
+@media(max-width:1100px){.ar-showcase{gap:18px}.ar-scene-copy h3{font-size:20px}.ar-screen{padding:10px 10px 0;border-radius:21px}.ar-screen figcaption{font-size:12px;padding:16px 0;gap:6px}.story-grid{gap:40px}.story-copy h2{font-size:34px}}
+@media(max-width:760px){.ar-showcase{grid-template-columns:1fr;gap:48px;margin-top:55px}.ar-scene{max-width:440px;width:100%;margin:auto}.ar-scene-copy{padding:0 0 23px}.ar-scene-copy h3{font-size:26px}.ar-scene-copy p{font-size:16px}.ar-screen{width:100%;max-width:360px;align-self:center;padding:12px 12px 0;border-radius:24px;box-sizing:border-box}.ar-screen figcaption{font-size:14px;padding:18px 0}.ar-context{margin-top:28px}.story-grid{grid-template-columns:1fr;gap:40px}.story-photograph{padding:5px 4px 0}.story-copy h2{font-size:32px}.story-photograph .story-art-note{margin-top:20px}.closing-mark img{width:100%;height:100%;position:static;transform:scale(1.3)}.footer-top .brand-icon{width:28px;height:35px}.photo-credits{max-width:100%}}
+@media(prefers-reduced-motion:reduce){.ar-screen,.story-photo-wrap{transition:none}}

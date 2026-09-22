@@ -1,5 +1,5 @@
 {
-  "licenseSummary": "Free commercial and noncommercial website use; attribution appreciated, not required. Cannot sell photos without significant modification or compile a competing service.",
+  "licenseSummary": "See individual asset licenses. The modified AR discovery image is CC BY-SA 4.0; this does not license the whole website.",
   "inspectedOn": "2026-09-22",
   "assets": [
     {
@@ -29,6 +29,125 @@
       "licenseUrl": "https://unsplash.com/license",
       "verified": true,
       "cropGuidance": "Cup subjects occupy lower 50%; object-position: 50% 72% for landscape/square card. Use as editorial illustrative image, do not claim specific provenance or product."
+    },
+    {
+      "file": "ar-navigation-realphoto.png",
+      "sourceMetadata": {
+        "asset": "ar-navigation-realphoto.png",
+        "original": "sources/navigation-original.jpg",
+        "sourcePageUrl": "https://unsplash.com/photos/a-couple-of-people-walking-down-a-street-holding-umbrellas-4GUvuYsJZCc",
+        "exactImageUrl": "https://images.unsplash.com/photo-1724063039733-420f98bd5c51?auto=format&fit=crop&fm=jpg&q=90&w=1600",
+        "originalImageEndpoint": "https://images.unsplash.com/photo-1724063039733-420f98bd5c51",
+        "photographer": "Tyler Zhang",
+        "sourceDescription": "Sunny day in the heart of Kyoto",
+        "sourceLocation": "Kyoto, Japan",
+        "sourcePublishedAt": "2024-08-19",
+        "cameraAsReportedBySource": "Fujifilm, XE-2",
+        "license": "Unsplash License",
+        "licenseUrl": "https://unsplash.com/license",
+        "licenseVerifiedOn": "2026-09-22",
+        "licenseSummary": "Source page states free under Unsplash License; license permits downloading, copying, modifying, distributing and using for commercial and noncommercial purposes, without mandatory attribution. No unmodified sale or competing image-service compilation.",
+        "realPhotoProvenance": "Photographer credit, source location and Fujifilm XE-2 camera metadata shown on Unsplash's free photo page; page is not an Unsplash+ AI image.",
+        "editMethod": "Built-in image_gen, referenced_image_paths pointing to downloaded original as EDIT TARGET",
+        "exactEditPrompt": "Use case: compositing / ui-mockup photo edit.\nAsset type: Tripick AR walking-navigation app preview, portrait 1024 x 1536, no hardware or device frame.\nInput image 1 is the ACTUAL EDIT TARGET: an original photographer-shot street photograph by Tyler Zhang in Kyoto, from Unsplash. This is not a style or scene reference. You must edit directly ON THIS EXACT PHOTOGRAPH. Keep the complete existing composition and preserve physical photographic contents as faithfully as possible. Do NOT generate, recreate, redesign, beautify or invent a different Japanese street. Keep original actual buildings, overhead cables, lamp post, traffic signs, parked white car, bicycles, potted plants, all people (including the foreground dark-shirt man with tote and umbrella woman), storefronts and signage, perspective, natural midday lighting, muted colors, shadows, grain and textures exactly. Do not remove anything from the photo. Approximate source ratio already matches requested portrait; use full original width, no new photo regions.\nChange ONLY by adding restrained flat app UI and a ground-aligned semi-transparent AR path ON TOP of the photograph. The result must visibly be this real photo with a clean app overlay. Keep more than 65 percent of the actual photo clearly visible.\nTheme: cream #faf9f5, teal #087f81, coral #ff715b. Modern crisp Korean sans-serif type, polished yet understated. No brown UI, no gradients, no holograms, no blue sci-fi, no neon glows, no drop shadows except very subtle UI depth.\nLayout:\n1. Top 8%: slim edge-to-edge cream app header. At left small lowercase teal wordmark exact \"tripick\". At center dark-charcoal label exact \"AR 길 안내\". At right thin simple close X icon. No phone status bar, frame, border, notch or hardware.\n2. Immediately below the header, floating centered white rounded instruction pill occupying about 70% width and 5% height. Thin teal right-turn arrow icon and exact Korean \"40 m 앞에서 우회전\", clearly legible, comfortable padding.\n3. Add ONE narrow semi-transparent teal navigation strip grounded exactly along the existing visible pavement in the gap between the foreground pedestrians. It originates just above bottom sheet near center, contracts naturally with the photograph perspective toward the distant yellow storefront on the right. Use a few restrained spaced pale-teal directional chevrons. It is an interface overlay, not new pavement. Correct natural occlusion: the path must not cover any person's body, the umbrella, bicycles or vehicles. Do not redraw the street or erase people to fit a route. Place one small coral map destination pin near the existing yellow storefront in right middle distance, without covering its signage. Do not insert any new shop, sign or destination-name tag.\n4. Bottom 17%: cream sheet anchored to bottom edge with softly rounded top corners. Clean typography and roomy margins. First line exact \"선택한 기념품 판매처\", smaller second line exact \"도보 2분 · 120 m\". Below one solid teal rounded button reading exact \"도착지 보기\" with thin right arrow at right. Tiny discreet grey text exact \"시연 화면\" in bottom sheet near bottom edge. Do not add other copy.\nAll Korean text must be exact. Real camera street scene remains photographic and unchanged behind UI. Only add the overlays described, preserve all other source pixels/contents. Produce one finished portrait image.",
+        "visualQa": {
+          "backgroundMateriallyChanged": false,
+          "details": "Original street viewpoint, buildings, wires, three pedestrians, umbrella, car, shop signage and bicycles retained visually. Original background was not replaced with another street. Added header, instruction pill, ground-path overlay, coral destination pin and bottom sheet. No material background change observed, although this generative edit is not claimed to be pixel-identical.",
+          "text": [
+            "tripick",
+            "AR 길 안내",
+            "40 m 앞에서 우회전",
+            "선택한 기념품 판매처",
+            "도보 2분 · 120 m",
+            "도착지 보기",
+            "시연 화면"
+          ],
+          "routeOcclusion": "Teal strip occupies the pavement gap between foreground people; bodies remain visible without the strip painted over them.",
+          "previewOnly": true,
+          "productionSiteChanged": false
+        }
+      }
+    },
+    {
+      "file": "ar-size-realphoto.png",
+      "sourceMetadata": {
+        "sourceURL": "https://unsplash.com/photos/a-wooden-table-sitting-in-front-of-a-window-Udo2rEX_NaA",
+        "imageURL": "https://images.unsplash.com/photo-1722142471616-df16a15da2d6",
+        "photographer": "Kouji Tsuru",
+        "photographerURL": "https://unsplash.com/@pafuxu",
+        "license": "Unsplash License",
+        "licenseURL": "https://unsplash.com/license",
+        "published": "2024-07-28",
+        "cameraMetadata": "NIKON CORPORATION, NIKON Z6_3",
+        "sourceFile": "sources/size-original.jpg",
+        "outputFile": "ar-size-realphoto.png",
+        "generationMode": "built-in image_gen edit using referenced_image_paths",
+        "editPrompt": "Use case: compositing.\nAsset type: Tripick mobile AR camera preview, portrait 1024x1536, no device hardware/frame/notch.\nInput image 1 is the EDIT TARGET: a real photographed cafe wood table, black trestle legs and wooden stools in front of a window, street cars and stone building outside. Use this actual photograph as the camera background. It is NOT merely a style reference.\nSTRICT BACKGROUND INVARIANTS: keep the actual room and photograph completely unchanged except a modest crop to fit the photo viewport and the specified overlays. Preserve the window geometry and mullions, blue car, white car, exterior building, table exact outline, distinctive wood grain/board pattern, central thin metal table sign stand, stools, black trestle legs, texture, lens blur, exposure, imperfect subdued backlighting and all photographic details. Do not regenerate the scene, replace, brighten, beautify, smooth, rearrange furniture or add interior decorations. It must remain visibly the same real photograph.\nAdd one small plausible AR 3D simulated souvenir ceramic mug, realistic physical height 9 cm and ceramic body width 8 cm, on the front-middle of the existing tabletop, with its bottom planted on the wood plane. Table is roughly 75 cm wide, so mug must be about 12 percent of the table visible width tall. NOT oversized: approximately 105–125 px tall in output, 110–145 px wide including handle. Warm white handcrafted ceramic, muted blue understated small local souvenir mountain motif, right-side handle, realistic ceramic material but slight clean AR-rendered quality. Match source backlighting, perspective, and soft grounding contact shadow only immediately under mug. Do not obscure or remove the existing table sign stand.\nAdd thin muted teal #087f81 AR bounding corners close to mug's physical silhouette, with dimension witness lines ending precisely at the mug top/bottom/left/right edges, and readable small Korean measurements '높이 9 cm' along left vertical dimension and '너비 8 cm' below horizontal dimension. Fine teal placement ellipse on the wood immediately below mug, sparse tiny plane dots around it, one small coral #ff715b circular rotate control on right. No glowing sci-fi effects. Keep the 9 cm actual scale credible relative to the furniture; do not enlarge object for visual drama.\nUI: render as a flat app screenshot. Top 8 percent is a slim solid cream #faf9f5 header: small lowercase 'tripick' at left in teal, 'AR 미리보기' centered in charcoal, thin close icon right. Use crisp elegant modern Korean sans-serif and generous whitespace. Camera photo occupies at least 65 percent of total screen. Preserve actual photo, crop proportionally if needed but don't distort. Tiny discreet cream chip near photo top reads '시연 화면'. At the bottom a cream #faf9f5 sheet around 17 percent height with restrained rounded top corners. Sheet exact title '도자기 머그', smaller text '실제 크기 1:1', wide teal #087f81 button with exact white text '이 공간에 놓기' and thin right arrow. Coral only as tiny accent. Premium light functional Korean travel shopping interface. No extra text, no giant props, no brown UI branding, no phone outline, no people. Keep photo itself authentic and unchanged.",
+        "inspection": {
+          "background": "Actual source photograph retained with proportional crop: source window, cars, wall, wood boards, stools and trestle recognizable. Camera viewport preserved its original muted light and natural lens blur.",
+          "inserted": "Small ceramic souvenir mug, teal AR measurements and corners, coral rotate control, cream Tripick header and bottom sheet.",
+          "limitations": "This is an illustrative UI compositing preview, not a calibrated camera measurement. Dimension endpoint alignment is approximate; the height line stops slightly above the mug's lower visible edge."
+        }
+      }
+    },
+    {
+      "file": "ar-discovery-realphoto.png",
+      "sourceMetadata": {
+        "asset": "ar-discovery-realphoto.png",
+        "purpose": "Preview-only Tripick mobile AR nearby souvenir discovery concept. Not deployed or installed in site.",
+        "sourceTitle": "Shops at Nakamise Asakusa.jpg",
+        "sourcePageURL": "https://commons.wikimedia.org/wiki/File:Shops_at_Nakamise_Asakusa.jpg",
+        "originalImageURL": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Shops_at_Nakamise_Asakusa.jpg",
+        "photographer": "Dquai",
+        "photographerURL": "https://commons.wikimedia.org/wiki/User:Dquai",
+        "photographedAt": "2007-02-14 10:11:43",
+        "license": "Creative Commons Attribution-ShareAlike 4.0 International",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "derivativeLicense": "CC BY-SA 4.0",
+        "derivativeLicenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Shops at Nakamise Asakusa.jpg by Dquai, Wikimedia Commons, CC BY-SA 4.0. AI AR UI overlay added and portrait cropped. The adapted preview is distributed under CC BY-SA 4.0.",
+        "changes": "AI AR UI overlay added and portrait cropped",
+        "sourceType": "Actual photograph, not AI stock",
+        "sourceEvidence": "Wikimedia Commons lists own work, author Dquai, 2007 capture date and SONY DSC-T10 camera EXIF; image uploaded in 2018. Scene type metadata says directly photographed image.",
+        "sourceDimensions": {
+          "width": 1080,
+          "height": 1920
+        },
+        "originalFile": "sources/discovery-original.jpg",
+        "originalSHA256": "93537FF42C95E32A05F3E536F57A7A2DCCEEF9B4224AECCEFD1F007A1E6D968E",
+        "outputDimensions": {
+          "width": 1024,
+          "height": 1536
+        },
+        "tool": "built-in image_gen.imagegen",
+        "editPrompt": "Use case: compositing. EDIT THE PROVIDED REAL PHOTOGRAPH, NOT GENERATE A NEW STREET.\nInput image: discovery-original.jpg is the sole immutable edit target: an actual 2007 SONY photograph of Nakamise Asakusa by Dquai, CC BY-SA 4.0. This is NOT merely a style reference.\nDeliver a refined Tripick mobile AR discovery viewport in portrait 1024x1536, edge to edge, no phone body, no notch, no status bar.\nPHOTO INVARIANTS, HIGHEST PRIORITY: Retain the EXACT photographed architecture, roof shapes, Japanese signage and all its glyphs, souvenir displays, shopkeeper, every pedestrian, umbrellas including partial foreground black umbrella and woman on left, wet paving, pigeon, overhead bracket and lamp, perspective, weather, color and natural light. Do not recreate or reinterpret the street. Do not retouch, beautify, remove clutter, invent products, rearrange people, add shops, alter signage, change sky or sharpen surfaces into AI textures. The photo itself must remain an authentic identical photographic plate except resizing and portrait cropping. Crop excess top empty sky and bottom foreground only as necessary to fit the photograph behind UI; preserve shopfront width. Aim camera crop source x0..1080, y430..1725 so real storefronts occupy most of the view; maintain original aspect ratio, no stretching. At least 65% of final pixels show unobscured real photography.\nUI ONLY additions: calm sophisticated Korean sans-serif typography (Pretendard-like), palette cream #faf9f5, teal #087f81, coral #ff715b. Top slim cream header exactly 8% canvas height, small lowercase teal 'tripick' at left, compact dark '주변 기념품' centered, thin dark close × at right.\nCamera-view AR annotations: exactly TWO small white softly rounded horizontal AR labels, each narrow enough to read as a restrained camera annotation, subtle soft shadow, thin connector to an actual photographed storefront. Keep both labels below the skyline and away from faces and Japanese store signs. Left label near front shop above window reads exactly '로컬 과자 · 80 m', selected with small coral location pin and thin coral connector terminating with dot on front shop doorway/window area. Second label staggered lower and right near receding storefront reads exactly '기념품 소품 · 150 m', small teal pin and thin teal connector ending on second shopfront. The labels are fictional illustrative demo samples, not factual claims of real store inventories. Nonoverlapping labels, no enormous info cards, no floating skyline tags. No route line or floor arrows: this is nearby discovery, not navigation.\nBottom cream sheet only about 17% of canvas, upper corners radius 26, flat modern app UI. Inside compact confident title exactly '내 주변의 작은 발견'. A horizontal row of small outlined pill filter chips exactly '전체' '먹거리' '소품', with 전체 selected light teal. Below them a single teal rounded full width button exactly '이 주변 더 보기' with a thin right arrow at far right. A tiny discreet gray '시연 화면' at the lower edge.\nNo extra English copy, no screenshots, no sci-fi holograms/neon, no brown UI. Only add the described crisp legible interface onto the supplied REAL unchanged photograph.",
+        "targetedRetryPrompt": "Use case: compositing. Target image 1 is an existing Tripick AR interface laid over a real Nakamise photograph. Image 2 is the untouched original real photograph for exact photographic preservation. Make ONE TARGETED UI correction only: the selected coral connector currently ends on the shopkeeper's FACE. It must not target or obscure any person. Redirect that coral connector to end in a small coral outlined dot on the front shop's GLASS DISPLAY CASE, around target-image pixel x445,y934 (1024x1536 viewport). Keep the label '로컬 과자 · 80 m' and its current position, but route its thin connector downward and diagonally to that glass case point instead of the man's face. Make both connectors a restrained 2px stroke. All photo details and other UI including all Korean text must remain EXACTLY the same. Do not modify architecture, faces, people, umbrellas, signs, sky, paving, lighting, photo crop or any background pixels. Do not redraw photograph; this is an overlay-only correction. Preserve image 1's portrait 1024x1536 format.",
+        "generationInputs": [
+          "sources/discovery-original.jpg"
+        ],
+        "retryInputs": [
+          "first generated UI composite",
+          "sources/discovery-original.jpg"
+        ],
+        "fictionalAnnotations": true,
+        "annotationNote": "Shop category labels and distances are illustrative demo data, not verified inventories or measured real-world distances.",
+        "qualityReview": {
+          "originalInspectedBeforeEdit": true,
+          "finalVisuallyCompared": true,
+          "observations": "Original storefront architecture, Japanese signs, lamp bracket, pigeon, shopkeeper, umbrellas, pedestrians and wet street remain in the same arrangement. Empty upper sky and some lower foreground were cropped. Real photograph remains clearly recognizable. Added UI consists of cream header, two AR labels and bottom sheet.",
+          "materialDifferences": "No changed building, replaced person or invented storefront was observed. AI edit is not guaranteed pixel-identical: small texture/resampling differences are visible in fine merchandise/face details. The retained coral connector crosses in front of the shopkeeper but now terminates on the glass display case after one targeted correction. The bottom sheet is approximately 22% of output height rather than requested ~17%; unobscured photography remains approximately 65%+.",
+          "text": "All requested Korean copy visually correct.",
+          "retryCount": 1
+        }
+      }
+    },
+    {
+      "file": "gift-story-card.png",
+      "origin": "AI-generated concept image"
+    },
+    {
+      "file": "tripick-logo-transparent.png",
+      "origin": "Transparent cutout of user-supplied Tripick brand mark"
     }
   ]
 }

@@ -154,3 +154,19 @@
 #experience .finder-country-label{font-size:14px;color:#62766c;margin:0 3px}
 #experience .finder-country{font-size:15px;font-weight:550;min-height:34px;max-width:190px;padding:5px 26px 5px 10px;border:1px solid #d7e3d8;border-radius:6px;background:#f5f8f2;color:var(--teal)}
 @media(max-width:760px){#experience .demo-location{flex-wrap:wrap;gap:6px}#experience .finder-country{max-width:160px;font-size:14px}#experience .location-example{font-size:12px;margin-left:auto}}
+
+/* Submitted quick recommendations: idle → staged loading → catalog results. */
+#experience .finder-result-top[hidden],#experience #result-context[hidden]{display:none}
+#experience .finder-wait{grid-column:1/-1;min-height:318px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:28px 24px;background:#f5f8f3;border:1px dashed #b9d0c4;border-radius:12px}
+#experience .finder-wait-symbol{display:grid;place-items:center;width:64px;height:64px;margin-bottom:20px;border-radius:50%;background:#e2eee7;color:var(--teal);font-size:36px}
+#experience .finder-wait strong{font-size:23px;line-height:1.5;letter-spacing:-.6px}
+#experience .finder-wait p{font-size:17px;line-height:1.7;color:#526b62;margin:12px 0 0}
+#experience .finder-wait-loading{border-style:solid;background:linear-gradient(135deg,#eef6ef,#f8faf4)}
+#experience .finder-wait-loading .finder-wait-symbol{animation:finder-thinking 1.4s ease-in-out infinite}
+#experience .finder-loading-steps{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:24px}
+#experience .finder-loading-steps span{font-size:16px;padding:7px 12px;border-radius:24px;background:#e7ece5;color:#65756d;transition:background .25s,color .25s}
+#experience .finder-loading-steps .active{background:var(--teal);color:#fff}
+#experience .demo-submit:disabled{cursor:wait;opacity:.75;transform:none;box-shadow:none}
+@keyframes finder-thinking{0%,100%{transform:scale(.94) rotate(-12deg);opacity:.65}50%{transform:scale(1.07) rotate(12deg);opacity:1}}
+@media(max-width:760px){#experience .finder-wait{min-height:300px;padding:24px 16px}#experience .finder-wait strong{font-size:21px}}
+@media(prefers-reduced-motion:reduce){#experience .finder-wait-loading .finder-wait-symbol{animation:none}#experience .finder-loading-steps span{transition:none}}

@@ -46,3 +46,9 @@ node check-recommendations.cjs
 ## 배포와 팀 작업
 
 이 저장소는 팀 소스 공유용입니다. GitHub에 push하는 것만으로 기존 Sites 공개 페이지가 자동 갱신되지는 않습니다. `.openai/hosting.json`은 기존 Sites 프로젝트 연결 정보이며 비밀 키를 포함하지 않습니다. 다른 서비스에 배포하려면 정적 파일 디렉터리를 `dist`로 지정하세요.
+
+## IR 발표 모드
+
+`http://localhost:4317/?present=1#welcome`에서 14개 화면을 순서대로 발표할 수 있습니다. 일반 페이지 우측 상단의 **발표 시작** 버튼으로도 진입합니다. 방향키 좌우 또는 PageUp/PageDown, 하단 목차·이전·다음 버튼을 사용하세요.
+
+발표 순서·시간·수정된 원고는 `PRESENTATION.md`를 참고하세요. 추가 화면과 발표 제어는 `dist/pitch.css`, `dist/pitch.js`에 분리했습니다. 기존 추천 로직과 상품 데이터는 유지했습니다.

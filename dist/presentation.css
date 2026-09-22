@@ -44,3 +44,14 @@ h1,h2,h3,p{word-break:keep-all;overflow-wrap:break-word}
 @media(max-width:760px){.hero{grid-template-columns:1fr;padding-top:34px;gap:30px}.hero h1{font-size:clamp(31px,8.3vw,44px);letter-spacing:-1.8px}.hero-description{font-size:16px}.hero .eyebrow{line-height:1.8;font-size:12px;letter-spacing:0}.hero-actions{gap:15px}.hero-actions .button{font-size:14px}.souvenir-visual{margin:0;padding:23px 20px}.souvenir-piece img{height:105px}.souvenir-cup img{height:190px}.souvenir-piece figcaption{font-size:13px}.hero-note{margin-top:20px}.ar-section{padding-top:25px}.ar-section-heading .eyebrow{font-size:13px;letter-spacing:0}.ar-showcase{margin-top:0}.ar-context p{font-size:14px}.closing{min-height:0}}
 @media(prefers-reduced-motion:reduce){html{scroll-snap-type:none}}
 @media(min-width:1101px){#experience{min-height:calc(100svh - var(--presentation-header));display:flex;align-items:center}}
+
+/* Full-width closing with a softly reflected brand symbol. */
+.closing.presentation-section{width:100%;border-radius:0;background:var(--pale);padding:54px 0;margin:0;display:flex;align-items:center;overflow:hidden}
+.closing-inner{display:grid;grid-template-columns:1.2fr 1fr;gap:70px;align-items:center}
+.closing .closing-mark{position:relative;inset:auto;justify-self:center;width:clamp(250px,19vw,310px);height:auto;aspect-ratio:762/1350;transform:none;opacity:1;mix-blend-mode:normal;flex-shrink:0}
+.closing-symbol,.closing-reflection{position:absolute;top:0;left:0;width:100%;aspect-ratio:762/1060;overflow:hidden}
+.closing .closing-mark img{position:absolute;inset:auto;width:164.567%;height:auto;max-width:none;left:-32.283%;top:-9.057%;object-fit:initial;transform:none}
+.closing-reflection{top:calc(78.52% + 9px);transform:scaleY(-.42);transform-origin:center top;translate:0 42%;opacity:.16;filter:blur(1.8px);-webkit-mask-image:linear-gradient(to top,#000 0%,transparent 46%);mask-image:linear-gradient(to top,#000 0%,transparent 46%);pointer-events:none}
+.closing-mark:after{content:'';position:absolute;left:15%;top:calc(78.52% + 4px);width:70%;height:13px;background:#4277691c;border-radius:50%;filter:blur(8px)}
+@media(max-width:999px){.closing-inner{gap:35px}.closing .closing-mark{width:230px}.closing h2{font-size:30px}}
+@media(max-width:760px){.closing.presentation-section{padding:52px 0 38px}.closing-inner{grid-template-columns:1fr;gap:32px}.closing .closing-mark{width:190px;justify-self:center}.closing .eyebrow{max-width:none;font-size:10px}.closing h2{font-size:27px}.closing .button{font-size:14px}}

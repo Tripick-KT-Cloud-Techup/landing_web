@@ -150,4 +150,7 @@
 
 #experience .product-media{display:block}
 .finder-dialog-product-media{display:block}
-@media(min-width:1101px) and (max-height:820px){#experience{padding-block:16px}}
+@media(min-width:1101px) and (max-height:820px){#experience{padding-block:14px}}
+#experience .finder-country-label{font-size:14px;color:#62766c;margin:0 3px}
+#experience .finder-country{font-size:15px;font-weight:550;min-height:34px;max-width:190px;padding:5px 26px 5px 10px;border:1px solid #d7e3d8;border-radius:6px;background:#f5f8f2;color:var(--teal)}
+@media(max-width:760px){#experience .demo-location{flex-wrap:wrap;gap:6px}#experience .finder-country{max-width:160px;font-size:14px}#experience .location-example{font-size:12px;margin-left:auto}}

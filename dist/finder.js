@@ -1,6 +1,8 @@
 (()=>{
   const $=s=>document.querySelector(s), all=window.TRIPICK_CATALOG.products;
   let mode='quick',pick='share',page=0,results=[];
+  let loadingTimers=[];
+  const submitLabel=$('#recommend-button').innerHTML;
   const modes=[...document.querySelectorAll('[data-mode]')];
   const labels={friend:'친구',family:'가족',partner:'연인',colleague:'동료',me:'나'};
   const categories={tea:'차 · 말차',craft:'공예 · 생활 소품',design:'디자인 · 문구',food:'디저트 · 먹거리'};
@@ -43,20 +45,71 @@
     $('#recommendation').classList.add('result-emphasis');
     if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches)list.animate([{opacity:.4,transform:'translateY(7px)'},{opacity:1,transform:'translateY(0)'}],{duration:280,easing:'ease-out'});
   }
-  function refresh(){page=0;results=window.TripickRecommendation.recommend(all,conditions());paint();}
+  function cancelLoading(){
+    loadingTimers.forEach(clearTimeout);loadingTimers=[];
+    $('#recommend-button').disabled=false;
+    $('#recommend-button').innerHTML=submitLabel;
+    $('#product-results').setAttribute('aria-busy','false');
+  }
+  function placeholder(loading=false){
+    results=[];page=0;
+    $('#recommendation').classList.remove('result-emphasis');
+    $('.finder-result-top').hidden=true;
+    $('#result-context').hidden=true;
+    $('#result-count').textContent='';
+    $('#more-products').hidden=true;
+    const panel=node('div',loading?'finder-wait finder-wait-loading':'finder-wait');
+    const symbol=node('span','finder-wait-symbol',loading?'✦':'✧');symbol.setAttribute('aria-hidden','true');
+    const title=node('strong','',loading?'여행 조건을 살펴보고 있어요':'어떤 선물이 기다리고 있을까요?');
+    title.id='finder-wait-title';
+    const description=node('p','',loading?'선택한 여행지와 예산에 맞춰 후보를 좁히고 있어요.':'조건을 고른 뒤 추천 상품 보기를 눌러주세요.');
+    description.id='finder-wait-description';
+    panel.append(symbol,title,description);
+    if(loading){
+      const steps=node('div','finder-loading-steps');steps.setAttribute('aria-hidden','true');
+      ['조건 확인','후보 비교','추천 정리'].forEach((label,i)=>{const step=node('span',i===0?'active':'',label);steps.append(step);});
+      panel.append(steps);
+    }
+    $('#product-results').replaceChildren(panel);
+    $('#result-status').textContent=loading?'선택한 조건에 맞는 기념품을 찾고 있습니다.':'조건을 선택한 후 추천 상품 보기 버튼을 눌러주세요.';
+  }
+  function refresh(){
+    cancelLoading();page=0;results=window.TripickRecommendation.recommend(all,conditions());
+    $('.finder-result-top').hidden=false;$('#result-context').hidden=false;paint();
+  }
+  function conditionsChanged(){
+    cancelLoading();
+    if(mode==='quick')placeholder();else refresh();
+  }
+  function requestRecommendation(){
+    cancelLoading();placeholder(true);
+    $('#product-results').setAttribute('aria-busy','true');
+    $('#recommend-button').disabled=true;
+    $('#recommend-button').textContent='기념품 고르는 중…';
+    const stages=[
+      [750,'어울리는 기념품을 비교하고 있어요','선물 종류와 예산에 맞는 상품을 살펴보고 있어요.'],
+      [1500,'당신을 위한 픽을 정리하고 있어요','비교하기 좋은 후보를 골라 곧 보여드릴게요.']
+    ];
+    stages.forEach(([delay,title,description],index)=>loadingTimers.push(setTimeout(()=>{
+      $('#finder-wait-title').textContent=title;
+      $('#finder-wait-description').textContent=description;
+      document.querySelectorAll('.finder-loading-steps span').forEach((step,i)=>step.classList.toggle('active',i<=index+1));
+    },delay)));
+    loadingTimers.push(setTimeout(refresh,2300));
+  }
   function changeCountry(){
     const countryProducts=all.filter(p=>(p.country||'JP')===$('#country').value);
     $('#catalog-count').textContent=`${countryProducts.length}개 제품 큐레이션`;
     [...$('#taste').options].forEach(option=>{option.disabled=option.value!=='all'&&!countryProducts.some(p=>p.category===option.value);});
     if($('#taste').selectedOptions[0].disabled)$('#taste').value='all';
-    refresh();
+    conditionsChanged();
   }
-  function setMode(next){mode=next;modes.forEach(b=>{const active=b.dataset.mode===mode;b.classList.toggle('active',active);b.setAttribute('aria-selected',String(active));b.tabIndex=active?0:-1;});$('#quick-controls').hidden=mode!=='quick';$('#personal-controls').hidden=mode!=='personal';$('#demo-panel').setAttribute('aria-labelledby',mode==='quick'?'quick-tab':'personal-tab');$('#demo-title').textContent=mode==='quick'?'어떤 선물을 찾고 있나요?':'누구의 미소가 떠오르나요?';$('#demo-subtitle').textContent=mode==='quick'?'나누기 좋은 차부터 작은 소품까지 골라보세요.':'대상과 취향에 맞는 제품을 예산 안에서 찾아요.';refresh();}
+  function setMode(next){mode=next;modes.forEach(b=>{const active=b.dataset.mode===mode;b.classList.toggle('active',active);b.setAttribute('aria-selected',String(active));b.tabIndex=active?0:-1;});$('#quick-controls').hidden=mode!=='quick';$('#personal-controls').hidden=mode!=='personal';$('#demo-panel').setAttribute('aria-labelledby',mode==='quick'?'quick-tab':'personal-tab');$('#demo-title').textContent=mode==='quick'?'어떤 선물을 찾고 있나요?':'누구의 미소가 떠오르나요?';$('#demo-subtitle').textContent=mode==='quick'?'나누기 좋은 차부터 작은 소품까지 골라보세요.':'대상과 취향에 맞는 제품을 예산 안에서 찾아요.';conditionsChanged();}
   modes.forEach((b,i)=>{b.addEventListener('click',()=>setMode(b.dataset.mode));b.addEventListener('keydown',e=>{let next;if(['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(e.key))next=1-i;else if(e.key==='Home')next=0;else if(e.key==='End')next=1;else return;e.preventDefault();modes[next].focus();setMode(modes[next].dataset.mode);});});
-  document.querySelectorAll('[data-pick]').forEach(b=>b.addEventListener('click',()=>{pick=b.dataset.pick;document.querySelectorAll('[data-pick]').forEach(x=>{x.classList.toggle('active',x===b);x.setAttribute('aria-pressed',String(x===b));});refresh();}));
-  ['#recipient','#taste','#budget'].forEach(id=>$(id).addEventListener('change',refresh));
+  document.querySelectorAll('[data-pick]').forEach(b=>b.addEventListener('click',()=>{pick=b.dataset.pick;document.querySelectorAll('[data-pick]').forEach(x=>{x.classList.toggle('active',x===b);x.setAttribute('aria-pressed',String(x===b));});conditionsChanged();}));
+  ['#recipient','#taste','#budget'].forEach(id=>$(id).addEventListener('change',conditionsChanged));
   $('#country').addEventListener('change',changeCountry);
-  $('#recommend-button').addEventListener('click',refresh);
+  $('#recommend-button').addEventListener('click',requestRecommendation);
   $('#more-products').addEventListener('click',()=>{page=page*3+3<results.length?page+1:0;paint();});
   $('#pricing-info-button').addEventListener('click',()=>$('#finder-pricing-dialog').showModal());
   document.querySelectorAll('[data-close-dialog]').forEach(button=>button.addEventListener('click',()=>button.closest('dialog').close()));
@@ -68,7 +121,7 @@
       if(country){$('#country').value=country;changeCountry();}
       if(next==='quick'&&['share','light','local'].includes(category)){pick=category;document.querySelectorAll('[data-pick]').forEach(b=>{b.classList.toggle('active',b.dataset.pick===pick);b.setAttribute('aria-pressed',String(b.dataset.pick===pick));});}
       if(next==='personal'&&['all','craft','tea','design','food'].includes(category))$('#taste').value=category;
-      setMode(next);$('#experience').scrollIntoView({behavior:'auto'});
+      setMode(next);refresh();$('#experience').scrollIntoView({behavior:'auto'});
       return {content:[{type:'text',text:JSON.stringify({referenceCatalog:true,count:results.length,products:results.slice(0,3).map(p=>({name:p.name,url:p.url}))})}]};
     }});
   }
